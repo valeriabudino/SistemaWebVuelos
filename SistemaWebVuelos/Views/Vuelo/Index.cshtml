@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SistemaWebVuelos.Models.Vuelo>
+@{
+    ViewBag.Title = "Index";
+}
+<div>
+    <p>@Html.ActionLink("Nuevo", "Create", "Vuelo")</p>
+
+    <table>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Destino)</th>
+            <th>@Html.DisplayNameFor(model => model.Origen)</th>
+            <th>@Html.DisplayNameFor(model => model.Fecha)</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(item.Destino, "Listar", new { destino = item.Destino })</td>              
+                <td>@Html.DisplayFor(modelItem => item.Origen)</td>
+                <td>@Html.DisplayFor(modelItem => item.Fecha)</td>
+                <td>
+                    @Html.ActionLink("Detail", "Detail", new { id = item.Id })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+@section SideBar
+    {
+
+    <p>Visitenos</p>
+
+    <ul>
+        <li>
+            <a href="#">Link1</a>
+        </li>
+        <li>
+            <a href="#">Link2</a>
+        </li>
+        <li>
+            <a href="#">Link3</a>
+
+        </li>
+        <li>
+            <a href="#">Link4</a>
+        </li>
+
+    </ul>
+    }
